@@ -1,24 +1,14 @@
-<div id="courseModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('courseModal')">&times;</span>
-        <h2>Create Course</h2>
-
-        <form>
-            <label>Course Title</label>
-            <input type="text" placeholder="Enter course name" required>
-
-            <label>Level</label>
-            <select required>
-                <option value="">Select level</option>
-                <option>Beginner</option>
-                <option>Intermediate</option>
-                <option>Advanced</option>
-            </select>
-
-            <label>Description</label>
-            <textarea placeholder="Course description"></textarea>
-
-            <button type="submit" class="submit-btn">Save Course</button>
-        </form>
-    </div>
-</div>
+<?php
+    if(isset($_POST["submit"])){
+        $title = trim($_POST["title"]);
+        $description = trim($_POST["description"]);
+        $level = $_POST["level"];
+        if((!empty($title)) && (!empty($description)) && (in_array($level, ["Beginner", "Intermediate", "Advanced"]))){
+            $saveCours = mysqli_query($conn, "INSERT INTO courses (title, description, level) VALUES('$title', '$description', '$level')");
+            header("Location: cours/courses_list.php");
+        }
+        else{
+            echo "Invalid input!";
+        }
+    }
+?>

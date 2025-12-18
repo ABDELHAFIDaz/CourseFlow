@@ -209,3 +209,24 @@ textarea {
 .btn.add:hover {
     background: #17a673;
 }
+/* FORMS */
+.form-box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: auto;
+}
+
+.form-box h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}

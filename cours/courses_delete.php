@@ -1,6 +1,7 @@
 <?php
     require_once '../infrastructure/config.php';
     $targetedId = $_GET["id"];
-    $delete = mysqli_query($conn, "DELETE FROM courses WHERE id = $targetedId");
-    require_once "courses_list.php";
+    $delete = "DELETE FROM courses WHERE id = $targetedId";
+    $result = mysqli_query($conn, $delete);
+    header("Location: courses_list.php");
 ?>
