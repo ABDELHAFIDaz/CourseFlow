@@ -11,14 +11,3 @@ window.onclick = function(e) {
         e.target.style.display = "none";
     }
 }
-
-function formSwitcher(){
-    document.getElementById("sign-in-form").classList.toggle("hidden");
-    document.getElementById("login-form").classList.toggle("hidden");
-    console.log('hello mate')
-}
-document.getElementById("goToLogin").addEventListener("click", formSwitcher);
-document.getElementById("goToSignUp").addEventListener("click", formSwitcher);
-
-// form hundler================================
-

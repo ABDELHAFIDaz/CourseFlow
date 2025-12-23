@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course & Sections Manager</title>
-    <link rel="stylesheet" href="../style/style.css">
-    <script src="../script.js" defer></script>
-</head>
-<body>
+<?php
+    require_once 'courses_create.php';
+?>
 
 <!-- header -->
 <?php
@@ -53,9 +46,31 @@
 <!-- ====================
      COURSE MODAL
 ==================== -->
-<?php
-    require_once 'courses_create.php';
-?>
+<div id="courseModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('courseModal')">&times;</span>
+        <h2>Create Course</h2>
+
+        <form method="POST" action="courses_create.php">
+            <label>Course Title</label>
+            <input type="text" placeholder="Enter course name" name="title" required>
+
+            <label>Level</label>
+            <select name="level" required>
+                <option value="">Select level</option>
+                <option>Beginner</option>
+                <option>Intermediate</option>
+                <option>Advanced</option>
+            </select>
+
+            <label>Description</label>
+            <textarea placeholder="Course description" name="description"></textarea>
+
+            <button type="submit" class="submit-btn" name="submit">Save Course</button>
+        </form>
+    </div>
+</div>
+
 <!-- edit course -->
  <?php
     require_once 'courses_edit.php';
@@ -68,5 +83,6 @@
     require_once '../sections/sections_create.php';
 ?>
 
-</body>
-</html>
+<?php
+    require_once '../infrastructure/footer.php';
+?>
