@@ -1,5 +1,10 @@
 <?php
+    session_start();
     require_once 'courses_create.php';
+    if(empty($_SESSION["userId"])){
+        header("Location: ../auth/login.php");
+        exit;
+    }
 ?>
 
 <!-- header -->
@@ -32,8 +37,7 @@
             <div class="card-buttons">
                 <button class="btn edit" onclick="openModal('courseModalEdit')">Edit</button>
                 <a href="courses_delete.php?id=<?= $row["id"] ?>"><button class="btn delete">Delete</button></a>
-                <button class="btn view">View Sections</button>
-                <button class="btn add" onclick="openModal('sectionModal')">Add Section</button>
+                <a href="save_course.php?id=<?= $row["id"] ?>"><button class="btn add">Register</button></a>
             </div>
         </div>
 <?php
@@ -75,13 +79,6 @@
  <?php
     require_once 'courses_edit.php';
  ?>
-
-<!-- ====================
-     SECTION MODAL
-==================== -->
-<?php
-    require_once '../sections/sections_create.php';
-?>
 
 <?php
     require_once '../infrastructure/footer.php';
